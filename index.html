@@ -157,32 +157,28 @@
 
 <!-- LIGHTBOX -->
 
-<div id="lightbox" class="lightbox">
-    <span class="close">&times;</span>
-    <img class="lightbox-content" id="lightbox-img">
+<div id="lightbox">
+    <img id="lightbox-img" src="" alt="">
 </div>
 
 <script>
-const images = document.querySelectorAll(".gallery img");
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-const closeBtn = document.querySelector(".close");
+document.addEventListener("DOMContentLoaded", function () {
 
-images.forEach(img => {
-    img.addEventListener("click", () => {
-        lightbox.style.display = "flex";
-        lightboxImg.src = img.src;
+    const images = document.querySelectorAll(".gallery img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+
+    images.forEach(img => {
+        img.addEventListener("click", () => {
+            lightboxImg.src = img.src;
+            lightbox.classList.add("active");
+        });
     });
-});
 
-closeBtn.addEventListener("click", () => {
-    lightbox.style.display = "none";
-});
+    lightbox.addEventListener("click", () => {
+        lightbox.classList.remove("active");
+    });
 
-lightbox.addEventListener("click", (e) => {
-    if (e.target !== lightboxImg) {
-        lightbox.style.display = "none";
-    }
 });
 </script>
 
