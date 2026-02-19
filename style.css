@@ -134,7 +134,9 @@ footer {
     color: #666;
 }
 
-/* LIGHTBOX PRO VERSION */
+/* ============================= */
+/* LIGHTBOX – FIXED + ANIMATION */
+/* ============================= */
 
 #lightbox {
     position: fixed;
@@ -143,10 +145,12 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease;
-    z-index: 1000;
+
+    z-index: 9999;
 }
 
 #lightbox.active {
@@ -158,6 +162,7 @@ footer {
     max-width: 90%;
     max-height: 90%;
     border-radius: 8px;
+
     transform: scale(0.8);
     transition: transform 0.3s ease;
 }
@@ -165,13 +170,3 @@ footer {
 #lightbox.active img {
     transform: scale(1);
 }
-
-.gallery img {
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-.gallery img:hover {
-    transform: scale(1.05);
-}
-
