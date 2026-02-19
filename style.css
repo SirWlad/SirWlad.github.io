@@ -56,12 +56,67 @@ h2 {
     margin-bottom: 15px;
 }
 
-.gallery img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border: 1px solid #e0e0e0;
+.gallery {
+    display: grid;
+    gap: 20px;
 }
+
+/* ============================= */
+/* PIONOWE A4 (210x297) */
+/* proporcja 1 : 1.414 */
+/* ============================= */
+
+.a4-portrait {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.a4-portrait img {
+    width: 100%;
+    aspect-ratio: 1 / 1.414;
+    object-fit: cover;
+    border: 1px solid #e0e0e0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ============================= */
+/* POZIOME A4 (297x210) */
+/* proporcja 1.414 : 1 */
+/* ============================= */
+
+.a4-landscape {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+.a4-landscape img {
+    width: 100%;
+    aspect-ratio: 1.414 / 1;
+    object-fit: cover;
+    border: 1px solid #e0e0e0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ============================= */
+/* KWADRAT */
+/* ============================= */
+
+.square {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.square img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border: 1px solid #e0e0e0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover */
+.gallery img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
 
 /* Description */
 .description {
